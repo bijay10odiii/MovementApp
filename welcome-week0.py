@@ -1,0 +1,1 @@
+print("Hello User, welcome to the Motion Detector! Let's start.")
