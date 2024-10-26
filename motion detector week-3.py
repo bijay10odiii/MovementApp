@@ -8,6 +8,7 @@ def validate_dob_format(dob):
         return  True
     except ValueError:
         return False
+
 #password generator
 def generate_chars(char_set, num_chars):
         return [random.choice(char_set) for _ in range(num_chars)]
@@ -19,8 +20,9 @@ def generate_password(num_upper, num_lower, num_digits, num_special):
     password = upper_chars + lower_chars + digit_chars + special_chars
     random.shuffle(password)
     return ''.join(password)
-#user input
+
 def main():
+    #user input
     firstname=input("Enter your first name: ")
     lastname=input("Enter your last name: ")
     age=int(input("Enter your age: "))
@@ -29,6 +31,7 @@ def main():
         print("Date of birth  is in correct format.")
     else:
         print("Date of birth is in invalid format.")
+
     #username
     print (f"\nHello {firstname} {lastname}, welcome to the Motion Detector! Let's Start.")
     Username= firstname[:2] + lastname[:3] + birthday[-4:] + birthday[3:5] + birthday[:2]
@@ -40,9 +43,9 @@ def main():
     num_lower = int(input("Enter number of lowercase you want: "))
     num_digits = int(input("Enter number of digits you want: "))
     num_special= int(input("Enter number of special characters: "))
-
     password= generate_password(num_upper, num_lower , num_digits , num_special)
     print("Your password is:",password)
+    
     #User rights
     if firstname.upper() == "BIJAY" and lastname.upper() == "SATYAL":
         print(f"\nWelcome {firstname}, you have admin rights.")
@@ -58,7 +61,6 @@ def main():
     temp=input("\nDo you want to see temperature in fahrenheit or celsius? ")
     temperature_in_Fahrenheit = random.randint(32, 212)
     temperatue_in_celsius= random.randint(0, 100)
-
     if temp.upper() == "CELSIUS" and temperatue_in_celsius > 80:
         print(f"The temperature of the CPU is {temperatue_in_celsius} °C, it is ON FIRE")
     elif temp.upper() == "CELSIUS" and 70 <= temperatue_in_celsius <= 80 :
@@ -79,19 +81,15 @@ def main():
         print("\nMovement detected: 'Yes'")
     else:
         print("\nMovement detected: 'No'")
+
     #celsius to fahrenheit
     celsius=float(input("\nEnter temperature in celsius: "))
     fahrenheit= (celsius * 9/5) + 32
     print(f"The given temperature {celsius} °C is {fahrenheit} °F")
+    
     #exiting
     quit=input("\nDo you want to quit (Yes / NO)? ")
     if quit.upper()== "YES":
         print("Thanks for visiting. Welcome back soon.")
         sys.exit()
 main()
-
-
-
-
-
-    
